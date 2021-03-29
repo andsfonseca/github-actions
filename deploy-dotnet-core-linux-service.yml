@@ -1,0 +1,29 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ deploy ]
+  pull_request:
+    branches: [ deploy ]
+
+jobs:
+  build:
+
+    runs-on: linux
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1.811 #Versão do SDK
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Stop Service
+      run: sudo /bin/systemctl stop app.service
+    - name: Publish
+      run: dotnet publish -c Release -o /var/www/app
+    - name: Restart Service
+      run: sudo /bin/systemctl restart app.service

@@ -10,6 +10,8 @@ Este repositórios contém alguns exemplos de Github Actions para variados tipos
 
 * [Deploy ASP .Net Core on IIS Server (Windows)](deploy-dotnet-core-iis.md)
     * [deploy-dotnet-core-iis.yml](deploy-dotnet-core-iis.yml)
+* [Deploy ASP .Net Core on Linux Server](deploy-dotnet-core-linux-service.md)
+    * [deploy-dotnet-core-iis.yml](deploy-dotnet-core-linux-service.yml)
 
 
 
